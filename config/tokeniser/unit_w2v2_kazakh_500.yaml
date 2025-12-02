@@ -1,0 +1,21 @@
+# @package _global_
+
+tokeniser:
+  tokeniser_type: unit
+  feature_extractor_type: wav2vec2_kazakh
+
+  feature_extractor:
+    pretrained_model: aismlv/wav2vec2-large-xlsr-kazakh
+    kmeans_path: /home/bkairatuly/slamkit/data/kmeans/kz_w2v2_ksc2_500.joblib
+    layer: 11
+    num_units: 500
+    cache_path: null
+    compile: false
+    load_config_only: false
+
+  params:
+    dedup: true
+    pad_token_id: 0
+    num_units: null      # will be filled from feature_extractor.num_units
+    load_fe: true        # IMPORTANT: so `tokeniser_factory` actually loads FE
+    bos_eos_token_id: 1

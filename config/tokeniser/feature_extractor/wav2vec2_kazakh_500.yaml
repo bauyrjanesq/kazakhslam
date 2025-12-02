@@ -1,0 +1,14 @@
+# @package _global_
+
+tokeniser:
+  feature_extractor_type: 'wav2vec2_kazakh'
+
+  feature_extractor:
+    pretrained_model: 'aismlv/wav2vec2-large-xlsr-kazakh'   # Kazakh Wav2Vec2
+    kmeans_path: '${hydra:runtime.cwd}
+    /data/kmeans/kz_w2v2_ksc2_500.joblib'     # your trained KMeans over KZ features
+    layer: -1                                              # usually last hidden state
+    num_units: 500
+    cache_path: null
+    compile: false
+    load_config_only: false

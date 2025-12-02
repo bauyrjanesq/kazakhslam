@@ -4,7 +4,7 @@ defaults:
 
 metric_type: asr_perplexity
 whisper_model: openai/whisper-large-v3-turbo
-llm_name_or_path: meta-llama/Llama-3.2-1B
+llm_name_or_path: Qwen/Qwen2.5-0.5B
 prompt_length: 3
 num_files: 1000
 num_log: 10

@@ -1,0 +1,81 @@
+model:
+  pretrained_model: null
+  context_len: 512
+  config_args:
+    base_model_name: facebook/opt-125m
+    vocab_size: 502
+    dropout: 0.0
+    attention_dropout: 0.0
+    layerdrop: 0.0
+    pad_token_id: 0
+    bos_token_id: 1
+    eos_token_id: 1
+    use_cache: false
+    attn_implementation: null
+    trust_remote_code: null
+    use_safetensors: null
+    torch_dtype: null
+    twist_init: true
+  tlm_type: twist
+training_args:
+  output_dir: ../outputs/baseline
+  eval_strategy: steps
+  eval_steps: 1000
+  warmup_steps: 100
+  warmup_ratio: 0.01
+  lr_scheduler_type: cosine_with_min_lr
+  learning_rate: 0.001
+  lr_scheduler_kwargs:
+    min_lr: 5.0e-05
+  max_grad_norm: 0.5
+  num_train_epochs: 1
+  per_device_train_batch_size: 16
+  per_device_eval_batch_size: 8
+  gradient_accumulation_steps: 4
+  eval_accumulation_steps: null
+  save_total_limit: 2
+  use_cpu: false
+  dataloader_num_workers: 4
+  ddp_find_unused_parameters: false
+  group_by_length: false
+  bf16: true
+  torch_compile: false
+  min_token_id_count: null
+  max_token_id_count: null
+data:
+  train_path: example_data/tokens.jsonl
+  val_path: example_data/tokens.jsonl
+  num_proc: 32
+  packing: false
+  chunk_units_min_length: null
+  sample_units_max_length: null
+  saved_ds_path: null
+logger:
+  report_to: wandb
+  project: slamkit-baseline
+  entity: bauyrjanesq
+  save_code: false
+  group: null
+  resume: null
+  run_id: null
+tokeniser:
+  tokeniser_type: unit
+  feature_extractor_type: hubert
+  feature_extractor:
+    pretrained_model: slprl/mhubert-base-25hz
+    kmeans_path: https://dl.fbaipublicfiles.com/textless_nlp/twist/speech_tokenizer/mhubert_base_25hz_cp_mls_cv_sp_fisher_L11_km500.bin
+    layer: 11
+    num_units: 500
+    cache_path: null
+    compile: false
+    load_config_only: false
+  params:
+    dedup: true
+    pad_token_id: 0
+    num_units: 500
+    load_fe: false
+    bos_eos_token_id: 1
+  requires_meta: false
+cont_training: false
+run_time: null
+train_max_tokens: null

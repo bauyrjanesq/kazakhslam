@@ -1,0 +1,154 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            x60lhk0lvw0dbrrs40hl0npoal5zcadc:
+                args:
+                    - data.train_path=example_data/tokens.jsonl
+                    - data.val_path=example_data/tokens.jsonl
+                    - tokeniser=unit_hubert_25
+                    - training_args.num_train_epochs=1
+                    - training_args.per_device_train_batch_size=16
+                    - training_args.gradient_accumulation_steps=4
+                    - data.num_proc=32
+                    - logger=wandb
+                    - logger.entity=bauyrjanesq
+                    - logger.project=slamkit-baseline
+                    - training_args.output_dir=../outputs/baseline
+                codePath: cli/train.py
+                codePathLocal: cli/train.py
+                email: bauyrjanesq@gmail.com
+                executable: /home/bkairatuly/myenv/bin/python
+                git:
+                    commit: 388b40222a1736930dad5e6b231754217c69629a
+                    remote: https://github.com/slp-rl/slamkit.git
+                host: g1n6.cluster.wmi.amu.edu.pl
+                os: Linux-6.8.0-87-generic-x86_64-with-glibc2.35
+                program: /home/bkairatuly/slamkit/cli/train.py
+                python: CPython 3.10.12
+                root: /home/bkairatuly/slamkit
+                startedAt: "2025-11-17T15:43:49.555417Z"
+                writerId: x60lhk0lvw0dbrrs40hl0npoal5zcadc
+        m: []
+        python_version: 3.10.12
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 50
+                - 51
+                - 53
+                - 71
+                - 84
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 50
+                - 51
+                - 53
+                - 71
+                - 84
+            "3":
+                - 3
+                - 13
+                - 16
+            "4": 3.10.12
+            "5": 0.23.0
+            "6": 4.44.2
+            "12": 0.23.0
+            "13": linux-x86_64
+cont_training:
+    value: false
+data:
+    value:
+        chunk_units_min_length: null
+        num_proc: 32
+        packing: false
+        sample_units_max_length: null
+        saved_ds_path: null
+        train_path: example_data/tokens.jsonl
+        val_path: example_data/tokens.jsonl
+logger:
+    value:
+        entity: bauyrjanesq
+        group: null
+        project: slamkit-baseline
+        report_to: wandb
+        resume: null
+        run_id: null
+        save_code: false
+model:
+    value:
+        config_args:
+            attention_dropout: 0
+            attn_implementation: null
+            base_model_name: facebook/opt-125m
+            bos_token_id: 1
+            dropout: 0
+            eos_token_id: 1
+            layerdrop: 0
+            pad_token_id: 0
+            torch_dtype: null
+            trust_remote_code: null
+            twist_init: true
+            use_cache: false
+            use_safetensors: null
+            vocab_size: 502
+        context_len: 512
+        pretrained_model: null
+        tlm_type: twist
+run_time:
+    value: null
+tokeniser:
+    value:
+        feature_extractor:
+            cache_path: null
+            compile: false
+            kmeans_path: https://dl.fbaipublicfiles.com/textless_nlp/twist/speech_tokenizer/mhubert_base_25hz_cp_mls_cv_sp_fisher_L11_km500.bin
+            layer: 11
+            load_config_only: false
+            num_units: 500
+            pretrained_model: slprl/mhubert-base-25hz
+        feature_extractor_type: hubert
+        params:
+            bos_eos_token_id: 1
+            dedup: true
+            load_fe: false
+            num_units: 500
+            pad_token_id: 0
+        requires_meta: false
+        tokeniser_type: unit
+train_max_tokens:
+    value: null
+training_args:
+    value:
+        bf16: true
+        dataloader_num_workers: 4
+        ddp_find_unused_parameters: false
+        eval_accumulation_steps: null
+        eval_steps: 1000
+        eval_strategy: steps
+        gradient_accumulation_steps: 4
+        group_by_length: false
+        learning_rate: 0.001
+        lr_scheduler_kwargs:
+            min_lr: 5e-05
+        lr_scheduler_type: cosine_with_min_lr
+        max_grad_norm: 0.5
+        max_token_id_count: null
+        min_token_id_count: null
+        num_train_epochs: 1
+        output_dir: ../outputs/baseline
+        per_device_eval_batch_size: 8
+        per_device_train_batch_size: 16
+        save_total_limit: 2
+        torch_compile: false
+        use_cpu: false
+        warmup_ratio: 0.01
+        warmup_steps: 100
